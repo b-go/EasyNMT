@@ -31,7 +31,8 @@ class EasyNMT:
         """
         self._model_name = model_name
         self._fasttext_lang_id = None
-        self._lang_detectors = [self.language_detection_fasttext, self.language_detection_langid, self.language_detection_langdetect]
+        #self._lang_detectors = [self.language_detection_fasttext, self.language_detection_langid, self.language_detection_langdetect]
+        self._lang_detectors = [self.language_detection_langid, self.language_detection_langdetect]
         self._lang_pairs = frozenset()
         self.test='dev build'
 
