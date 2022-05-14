@@ -33,7 +33,7 @@ class EasyNMT:
         self._fasttext_lang_id = None
         self._lang_detectors = [self.language_detection_fasttext, self.language_detection_langid, self.language_detection_langdetect]
         self._lang_pairs = frozenset()
-        self.test='check check'
+        self.test='dev build'
 
         if device is None:
             device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -98,7 +98,7 @@ class EasyNMT:
 
     def translate(self, documents: Union[str, List[str]], target_lang: str, source_lang: str = None,
                   show_progress_bar: bool = False, beam_size: int = 5, batch_size: int = 16,
-                  perform_sentence_splitting: bool = True, paragraph_split: str = "\n", sentence_splitter=None,  document_language_detection: bool = True,
+                  perform_sentence_splitting: bool = True, paragraph_split: str = "\n", sentence_splitter=None,  document_language_detection: bool = False,
                   **kwargs):
         """
         This method translates the given set of documents
