@@ -33,6 +33,7 @@ class EasyNMT:
         self._fasttext_lang_id = None
         self._lang_detectors = [self.language_detection_fasttext, self.language_detection_langid, self.language_detection_langdetect]
         self._lang_pairs = frozenset()
+        self.test='check check'
 
         if device is None:
             device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -131,7 +132,7 @@ class EasyNMT:
 
         if source_lang is None and document_language_detection:
             src_langs = [self.language_detection(doc) for doc in documents]
-            
+
             # Group by languages
             lang2id = {}
             for idx, lng in enumerate(src_langs):
